@@ -2,7 +2,7 @@ package es.jmgarrido.skynet.Models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class Item {
+public class Movie {
 
     @JsonProperty(value="original_title")
     private String title;
@@ -13,11 +13,14 @@ public class Item {
     @JsonProperty(value="overview")
     private String description;
 
-    public Item(String title, String year, String description) {
+    public Movie() {}
+
+    public Movie(String title, String year, String description) {
         this.title = title;
         this.year = year;
         this.description = description;
     }
+
 
     public String getTitle() {
         return title;
@@ -42,4 +45,5 @@ public class Item {
     public void setDescription(String description) {
         this.description = description;
     }
+
 }

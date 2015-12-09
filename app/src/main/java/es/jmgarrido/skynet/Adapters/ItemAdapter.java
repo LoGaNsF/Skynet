@@ -4,21 +4,20 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.LinkedList;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import es.jmgarrido.skynet.Models.Item;
+import es.jmgarrido.skynet.Models.Movie;
 import es.jmgarrido.skynet.R;
 
 public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder> {
 
-    private LinkedList<Item> listItems;
+    private LinkedList<Movie> listItems;
 
-    public ItemAdapter(LinkedList<Item> listItems) {
+    public ItemAdapter(LinkedList<Movie> listItems) {
         this.listItems = listItems;
     }
 

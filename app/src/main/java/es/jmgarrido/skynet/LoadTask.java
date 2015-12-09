@@ -46,7 +46,7 @@ public class LoadTask extends AsyncTask<Void, Integer, String> {
 
             responseJsonStr = buffer.toString();
         } catch (Exception e) {
-
+            Log.e("CONN_ERROR", "Error durante la conexion.");
         } finally {
             if (urlConnection != null) {
                 urlConnection.disconnect();
@@ -62,6 +62,11 @@ public class LoadTask extends AsyncTask<Void, Integer, String> {
         }
 
         return responseJsonStr;
+    }
+
+    @Override
+    protected void onPostExecute(String s) {
+        super.onPostExecute(s);
     }
 
 }
