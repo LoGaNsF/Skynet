@@ -8,6 +8,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.LinkedList;
+
+import butterknife.Bind;
+import butterknife.ButterKnife;
 import es.jmgarrido.skynet.Models.Item;
 import es.jmgarrido.skynet.R;
 
@@ -30,7 +33,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
     @Override
     public void onBindViewHolder(ItemViewHolder holder, int i) {
         holder.title.setText(listItems.get(i).getTitle());
-        holder.year.setText("" + listItems.get(i).getYear());
+        holder.year.setText(listItems.get(i).getYear());
         holder.description.setText(listItems.get(i).getDescription());
     }
 
@@ -40,15 +43,13 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
     }
 
     public static class ItemViewHolder extends RecyclerView.ViewHolder {
-        public TextView title;
-        public TextView year;
-        public TextView description;
+        @Bind(R.id.item_title) TextView title;
+        @Bind(R.id.item_year) TextView year;
+        @Bind(R.id.item_description) TextView description;
 
         public ItemViewHolder(View itemView) {
             super(itemView);
-            title = (TextView) itemView.findViewById(R.id.item_title);
-            year = (TextView) itemView.findViewById(R.id.item_year);
-            description = (TextView) itemView.findViewById(R.id.item_description);
+            ButterKnife.bind(this, itemView);
         }
     }
 
