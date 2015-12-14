@@ -4,14 +4,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Movie {
 
-    @JsonProperty(value="original_title")
     private String title;
 
-    @JsonProperty(value="release_date")
     private String year;
 
-    @JsonProperty(value="overview")
     private String description;
+
+    private String poster;
 
     public Movie() {}
 
@@ -46,4 +45,11 @@ public class Movie {
         this.description = description;
     }
 
+    public String getPoster() {
+        return "https://image.tmdb.org/t/p/w185" + poster;
+    }
+
+    public void setPoster(String image) {
+        this.poster = image;
+    }
 }

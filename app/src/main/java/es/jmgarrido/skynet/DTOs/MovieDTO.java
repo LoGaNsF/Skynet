@@ -13,6 +13,9 @@ public class MovieDTO {
     @JsonProperty(value="overview")
     private String description;
 
+    @JsonProperty(value="poster_path")
+    private String poster;
+
     public MovieDTO() {}
 
 
@@ -38,5 +41,13 @@ public class MovieDTO {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getImage() {
+        return poster;
+    }
+
+    public void setImage(String image) {
+        this.poster = image;
     }
 }

@@ -11,6 +11,7 @@ public class MovieDTOToMovieConverter {
         movie.setTitle(movieDTO.getTitle());
         movie.setYear(movieDTO.getYear());
         movie.setDescription(movieDTO.getDescription());
+        movie.setPoster(movieDTO.getImage());
 
         return movie;
     }

@@ -1,11 +1,14 @@
 package es.jmgarrido.skynet;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 
 import java.util.LinkedList;
+import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -24,15 +27,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-        LinkedList<Movie> movies = new LinkedList<Movie>();
-
-        for (int i = 1; i <= 10; i++) {
-            String title = "Pelicula " + i;
-            String description = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.";
-
-            Movie movie = new Movie(title, "2015", description);
-            movies.add(movie);
-        }
+        List<Movie> movies = new LinkedList<Movie>();
 
         adapter = new ItemAdapter(movies);
         listItems.setAdapter(adapter);
@@ -40,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         manager = new LinearLayoutManager(this);
         listItems.setLayoutManager(manager);
 
-        LoadTask task = new LoadTask("http://api.themoviedb.org/3/movie/upcoming?api_key=6607b23bd32c73196d95cb154d8be4b0");
+        LoadTask task = new LoadTask("http://api.themoviedb.org/3/movie/upcoming?api_key=6607b23bd32c73196d95cb154d8be4b0", getApplicationContext(), listItems);
         task.execute();
     }
 
